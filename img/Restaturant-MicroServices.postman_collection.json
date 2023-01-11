@@ -1,0 +1,222 @@
+{
+	"info": {
+		"_postman_id": "0dd26344-b2e1-406b-9e0f-844587bdf71e",
+		"name": "Restaturant-MicroServices",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Customer",
+			"item": [
+				{
+					"name": "Customer-Restaturant",
+					"item": [
+						{
+							"name": "Restaturant-Food menu",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "localhost:9003/api/restaurants/foodmenu"
+							},
+							"response": []
+						},
+						{
+							"name": "Menu By Id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "localhost:9003/ap/restaurants/foodmenu/{foodmenuId}"
+							},
+							"response": []
+						},
+						{
+							"name": "Save Food By Customer",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": "localhost:9003/api/restaurants/foodmenu"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Customer Registration",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"customer\": {\r\n        \"firstName\": \"Rohit\",\r\n        \"lastName\": \"Xavi\",\r\n        \"email\": \"xavi@gmail.com\",\r\n        \"phoneNumber\": \"1980876670\"\r\n    },\r\n    \"address\": {\r\n        \"street\": \"Park Avn\",\r\n        \"city\": \"CA\",\r\n        \"state\": \"LA\", \"zipCode\": \"090881\"\r\n    },\r\n    \"creditCard\": {\r\n        \"cardNumber\": \"1101202310440098\",\r\n        \"expiryMonth\": \"12\",\r\n        \"expiryYear\": \"2028\",\r\n        \"securityCode\": \"876\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:9003/customers/signup"
+					},
+					"response": []
+				},
+				{
+					"name": "Customer Card Check",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:9003/customers/check-card/6"
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Customer",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:9003/customers"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Restaturant",
+			"item": [
+				{
+					"name": "Register Restaurant",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"restaurantName\": \"Taj Hotel\",\r\n    \"restaurantCatalog\": \"The Taj\",\r\n    \"foodMenu\": [\r\n        {\r\n            \"foodName\": \"Coffee\",\r\n            \"foodDescription\": \"Cold Coffee\",\r\n            \"foodCatalog\": \"TAJ01\",\r\n            \"foodPrice\": 250\r\n        },\r\n        {\r\n            \"foodName\": \"Garlic Tost\",\r\n            \"foodDescription\": \"Fresh Garlic Rost tost\",\r\n            \"foodCatalog\": \"TAJ02\",\r\n            \"foodPrice\": 275\r\n        },\r\n        {\r\n            \"foodName\": \"Paner Klc\",\r\n            \"foodDescription\": \"Paner kulcha butter\",\r\n            \"foodCatalog\": \"TAJ03\",\r\n            \"foodPrice\": 400\r\n        },\r\n        {\r\n            \"foodName\": \"Pizza\",\r\n            \"foodDescription\": \"Fresh Veg Pizza\",\r\n            \"foodCatalog\": \"TAJ04\",\r\n            \"foodPrice\": 800\r\n        }\r\n    ],\r\n    \"address\": {\r\n        \"street\": \"DELHI\",\r\n        \"state\": \"DL\",\r\n        \"city\": \"DL\",\r\n        \"zip\": \"303879\",\r\n        \"country\": \"IN\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:9002/api/restaurants"
+					},
+					"response": []
+				},
+				{
+					"name": "Get  Restaurant",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"restaurantName\": \"Oberai Hotel\",\r\n    \"restaurantCatalog\": \"the Oberai\",\r\n    \"foodMenu\": [\r\n        {\r\n            \"foodName\": \"Oberai Special\",\r\n            \"foodDescription\": \"Oberai tea with jaggary\",\r\n            \"foodCatalog\": \"OBR01\",\r\n            \"foodPrice\": 850\r\n        },\r\n        {\r\n            \"foodName\": \"Oberai Dosa\",\r\n            \"foodDescription\": \"Masala Dosa\",\r\n            \"foodCatalog\": \"OBR02\",\r\n            \"foodPrice\": 275\r\n        },\r\n        {\r\n            \"foodName\": \"Paner kulcha\",\r\n            \"foodDescription\": \"Paner kulcha butter\",\r\n            \"foodCatalog\": \"OBR03\",\r\n            \"foodPrice\": 400\r\n        },\r\n        {\r\n            \"foodName\": \"Icecream\",\r\n            \"foodDescription\": \"American Nuts Ice\",\r\n            \"foodCatalog\": \"LLT04\",\r\n            \"foodPrice\": 450\r\n        }\r\n    ],\r\n    \"address\": {\r\n        \"street\": \"ranthanbhor\",\r\n        \"state\": \"RJ\",\r\n        \"city\": \"SWM\",\r\n        \"zip\": \"303879\",\r\n        \"country\": \"IN\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:9002/api/restaurants"
+					},
+					"response": []
+				},
+				{
+					"name": "Get  Restaurant By Id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"restaurantName\": \"Oberai Hotel\",\r\n    \"restaurantCatalog\": \"the Oberai\",\r\n    \"foodMenu\": [\r\n        {\r\n            \"foodName\": \"Oberai Special\",\r\n            \"foodDescription\": \"Oberai tea with jaggary\",\r\n            \"foodCatalog\": \"OBR01\",\r\n            \"foodPrice\": 850\r\n        },\r\n        {\r\n            \"foodName\": \"Oberai Dosa\",\r\n            \"foodDescription\": \"Masala Dosa\",\r\n            \"foodCatalog\": \"OBR02\",\r\n            \"foodPrice\": 275\r\n        },\r\n        {\r\n            \"foodName\": \"Paner kulcha\",\r\n            \"foodDescription\": \"Paner kulcha butter\",\r\n            \"foodCatalog\": \"OBR03\",\r\n            \"foodPrice\": 400\r\n        },\r\n        {\r\n            \"foodName\": \"Icecream\",\r\n            \"foodDescription\": \"American Nuts Ice\",\r\n            \"foodCatalog\": \"LLT04\",\r\n            \"foodPrice\": 450\r\n        }\r\n    ],\r\n    \"address\": {\r\n        \"street\": \"ranthanbhor\",\r\n        \"state\": \"RJ\",\r\n        \"city\": \"SWM\",\r\n        \"zip\": \"303879\",\r\n        \"country\": \"IN\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:9002/api/restaurants/2"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Menu By Restaurant",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"restaurantName\": \"Oberai Hotel\",\r\n    \"restaurantCatalog\": \"the Oberai\",\r\n    \"foodMenu\": [\r\n        {\r\n            \"foodName\": \"Oberai Special\",\r\n            \"foodDescription\": \"Oberai tea with jaggary\",\r\n            \"foodCatalog\": \"OBR01\",\r\n            \"foodPrice\": 850\r\n        },\r\n        {\r\n            \"foodName\": \"Oberai Dosa\",\r\n            \"foodDescription\": \"Masala Dosa\",\r\n            \"foodCatalog\": \"OBR02\",\r\n            \"foodPrice\": 275\r\n        },\r\n        {\r\n            \"foodName\": \"Paner kulcha\",\r\n            \"foodDescription\": \"Paner kulcha butter\",\r\n            \"foodCatalog\": \"OBR03\",\r\n            \"foodPrice\": 400\r\n        },\r\n        {\r\n            \"foodName\": \"Icecream\",\r\n            \"foodDescription\": \"American Nuts Ice\",\r\n            \"foodCatalog\": \"LLT04\",\r\n            \"foodPrice\": 450\r\n        }\r\n    ],\r\n    \"address\": {\r\n        \"street\": \"ranthanbhor\",\r\n        \"state\": \"RJ\",\r\n        \"city\": \"SWM\",\r\n        \"zip\": \"303879\",\r\n        \"country\": \"IN\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:9002/api/restaurant/2/menu"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Order",
+			"item": [
+				{
+					"name": "Get Restaurant",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:9001/api/restaurants"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Order API",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": "localhost:9001/api/orders"
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Order",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:9001/api/orders"
+					},
+					"response": []
+				},
+				{
+					"name": "Order By Order Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:9001/api/orders/ord1"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Order By User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:9001/api/{userId}/orders"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Payment",
+			"item": []
+		}
+	]
+}
