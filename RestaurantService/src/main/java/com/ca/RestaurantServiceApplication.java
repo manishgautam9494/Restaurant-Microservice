@@ -36,19 +36,23 @@ public class RestaurantServiceApplication {
 		return new RabbitAdmin(connectionFactory);
 	}
 
-	@Bean
-	public SimpleMessageListenerContainer directListenerContainer(ConnectionFactory connectionFactory) {
-		SimpleMessageListenerContainer container = new SimpleMessageListenerContainer();
-		container.setConnectionFactory(connectionFactory);
-		container.setQueueNames(ORDER_MESSAGE_QUEUE);
-		//container.setMessageListener(new MessageListenerAdapter(queueListener(), "listenOrderMessage"));
-		return container;
-	}
+	/*
+	 * @Bean public SimpleMessageListenerContainer
+	 * directListenerContainer(ConnectionFactory connectionFactory) {
+	 * SimpleMessageListenerContainer container = new
+	 * SimpleMessageListenerContainer();
+	 * container.setConnectionFactory(connectionFactory);
+	 * container.setQueueNames(ORDER_MESSAGE_QUEUE);
+	 * container.setMessageListener(new MessageListenerAdapter(queueListener(),
+	 * "listenOrderMessage")); return container; }
+	 */
 
+	
 	/*
 	 * @Bean OrderMessageListener queueListener() { return new
 	 * OrderMessageListener(); }
 	 */
+	 
 
 	/********
 	 * 
@@ -70,16 +74,18 @@ public class RestaurantServiceApplication {
 		return BindingBuilder.bind(queueOrderComplete).to(exchangeComplete).with(ORDER_COMPLETED_MESSAGE_QUEUE);
 	}
 
-	@Bean
-	public RabbitTemplate orderCompletedTemplate(ConnectionFactory connectionFactory) {
-		RabbitTemplate orderCompletedTemplate = new RabbitTemplate(connectionFactory);
-		orderCompletedTemplate.setRoutingKey(ORDER_COMPLETED_MESSAGE_QUEUE);
-		orderCompletedTemplate.setExchange("FoodOrder_Completed_Exchange");
-		orderCompletedTemplate.setReplyTimeout(2000);
-		return orderCompletedTemplate;
-	}
 	/*
-	 * 
+	 * @Bean public RabbitTemplate orderCompletedTemplate(ConnectionFactory
+	 * connectionFactory) { RabbitTemplate orderCompletedTemplate = new
+	 * RabbitTemplate(connectionFactory);
+	 * orderCompletedTemplate.setRoutingKey(ORDER_COMPLETED_MESSAGE_QUEUE);
+	 * orderCompletedTemplate.setExchange("FoodOrder_Completed_Exchange");
+	 * orderCompletedTemplate.setReplyTimeout(2000); return orderCompletedTemplate;
+	 * }
+	 */
+	
+	  
+	/*
 	 * @Bean SimpleMessageListenerContainer container(ConnectionFactory
 	 * connectionFactory, MessageListenerAdapter listenerAdapter) {
 	 * SimpleMessageListenerContainer container = new
@@ -87,11 +93,14 @@ public class RestaurantServiceApplication {
 	 * container.setConnectionFactory(connectionFactory);
 	 * container.setQueueNames(ORDER_MESSAGE_QUEUE);
 	 * container.setMessageListener(listenerAdapter); return container; }
-	 * 
+	 */
+	/*
 	 * @Bean MessageListenerAdapter listenerAdapter(OrderMessageListener
 	 * orderMessageListener) { return new
-	 * MessageListenerAdapter(orderMessageListener, "listenOrderMessage"); } /*
-	 * 
+	 * MessageListenerAdapter(orderMessageListener, "listenOrderMessage"); }
+	 */
+
+	/*
 	 * @Bean DirectStoreListener queueListener() { return new DirectStoreListener();
 	 * }
 	 */

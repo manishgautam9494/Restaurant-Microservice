@@ -19,6 +19,8 @@ import com.ca.order.domain.Restaurant;
 import com.ca.order.domain.Order.OrderStatus;
 import com.ca.order.service.OrderService;
 import com.ca.order.service.OrderServiceAmqp;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 @RestController
 @RequestMapping("/api")
@@ -39,9 +41,10 @@ public class OrderRestContoller {
 	}
 
 	@GetMapping("/restaurants")
-	public Restaurant findallRestaurant() {
-		Restaurant restaurant = restTemplate.getForObject("http://Restaurant-Microservice/api/restaurants",
-				Restaurant.class);
+	public List<Restaurant> findallRestaurant() {
+		List<Restaurant> restaurant = restTemplate.getForObject("http://Restaurant-Microservice/api/restaurants",
+				List.class);
+		ObjectMapper m= new ObjectMapper();
 		return restaurant;
 	}
 

@@ -66,15 +66,14 @@ public class OrderServiceApplication {
 		return BindingBuilder.bind(queue).to(exchange).with(ORDER_MESSAGE_QUEUE);
 	}
 
-	@Bean
-	public RabbitTemplate orderMessageTemplate(ConnectionFactory connectionFactory) {
-		RabbitTemplate orderMessageTemplate = new RabbitTemplate(connectionFactory);
-		orderMessageTemplate.setRoutingKey(ORDER_MESSAGE_QUEUE);
-		orderMessageTemplate.setExchange("FoodOrder_Message_Exchange");
-		orderMessageTemplate.setReplyTimeout(2000);
-		return orderMessageTemplate;
-	}
-
+	/*
+	 * @Bean public RabbitTemplate orderMessageTemplate(ConnectionFactory
+	 * connectionFactory) { RabbitTemplate orderMessageTemplate = new
+	 * RabbitTemplate(connectionFactory);
+	 * orderMessageTemplate.setRoutingKey(ORDER_MESSAGE_QUEUE);
+	 * orderMessageTemplate.setExchange("FoodOrder_Message_Exchange");
+	 * orderMessageTemplate.setReplyTimeout(2000); return orderMessageTemplate; }
+	 */
 	
 	
 	/********
@@ -94,6 +93,7 @@ public class OrderServiceApplication {
 		return new RabbitAdmin(connectionFactory);
 	}
 
+	
 	/*
 	 * @Bean public SimpleMessageListenerContainer
 	 * directListenerContainer(ConnectionFactory connectionFactory) {
@@ -105,6 +105,7 @@ public class OrderServiceApplication {
 	 * "listenOrderCompleteMessage")); return container; }
 	 */
 
+	
 	/*
 	 * @Bean OrderMessageCompletedListener queueListener() { return new
 	 * OrderMessageCompletedListener(); }
